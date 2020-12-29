@@ -55,6 +55,7 @@ HF_ENCODERS = [
     'camembert',
     'albert',
     't5',
+    'mt5',
     'xlmroberta',
     'longformer',
     'flaubert',
@@ -609,7 +610,7 @@ def create_data_set_to_use(data_format, raw_data):
         )
 
     else:
-        ValueError(
+        raise ValueError(
             "'{}' is an unrecognized data format".format(data_format)
         )
 
