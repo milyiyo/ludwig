@@ -594,8 +594,7 @@ def test_t5_family(
             'encoder': t5_family_member,
             'level': 'word',
             'name': 'text',
-            'type': 'text',
-            'reduce_output': 'null'
+            'type': 'text'
         }
     ]
     output_features = [
