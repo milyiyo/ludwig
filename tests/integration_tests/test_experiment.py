@@ -583,6 +583,35 @@ def test_sequence_tagger(
     run_experiment(input_features, output_features, dataset=rel_path)
 
 
+@pytest.mark.parametrize('t5_family_member', ['t5','mt5'])
+def test_t5_family(
+        t5_family_member,
+        csv_filename
+):
+    # Define input and output features
+    input_features = [
+        {   
+            'encoder': t5_family_member,
+            'level': 'word',
+            'name': 'text',
+            'type': 'text',
+            'reduce_output': 'null'
+        }
+    ]
+    output_features = [
+        {   
+            'name': 'class',
+            'type': 'category'
+        }
+    ]
+
+    # Generate test data
+    rel_path = generate_data(input_features, output_features, csv_filename)
+
+    # run the experiment
+    run_experiment(input_features, output_features, dataset=rel_path)
+
+
 @pytest.mark.parametrize('sequence_combiner_encoder', ENCODERS[:-2])
 def test_experiment_sequence_combiner(sequence_combiner_encoder, csv_filename):
     # Sequence combiner
