@@ -385,7 +385,6 @@ class LudwigModel:
                     )
                     if not skip_save_training_description:
                         save_json(description_fn, description)
-                    # print description
                     logger.info('Experiment name: {}'.format(experiment_name))
                     logger.info('Model name: {}'.format(model_name))
                     logger.info('Output directory: {}'.format(output_directory))
