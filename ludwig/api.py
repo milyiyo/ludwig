@@ -1612,9 +1612,9 @@ def kfold_cross_validate(
     :param backend: (Union[Backend, str]) `Backend` or string name
             of backend to use to execute preprocessing / training steps.
     :param use_horovod: (bool, default: `None`) flag for using horovod
+    :param logging_level: (int, default: INFO) log level to send to stderr.
     :param debug: (bool, default: `False`) If `True` turns on tfdbg
             with `inf_or_nan` checks.
-    :param logging_level: (int, default: INFO) log level to send to stderr.
 
 
     # Return
