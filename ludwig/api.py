@@ -1227,8 +1227,6 @@ class LudwigModel:
         :param random_seed: (int, default: `42`) a random seed that will be
                used anywhere there is a call to a random number generator: data
                splitting, parameter initialization and training set shuffling
-        :param debug: (bool, default: `False`)  if `True` turns on `tfdbg` with
-            `inf_or_nan` checks.
 
 
         # Return
