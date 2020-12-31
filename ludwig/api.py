@@ -362,9 +362,8 @@ class LudwigModel:
 
         description_fn = training_stats_fn = model_dir = None
         if is_on_master():
-            if should_create_output_directory:
-                if not os.path.exists(output_directory):
-                    os.makedirs(output_directory, exist_ok=True)
+            if should_create_output_directory and not os.path.exists(output_directory):
+                os.makedirs(output_directory, exist_ok=True)
             description_fn, training_stats_fn, model_dir = get_file_names(
                 output_directory)
 
@@ -495,9 +494,8 @@ class LudwigModel:
             }
 
             # save training statistics
-            if is_on_master():
-                if not skip_save_training_statistics:
-                    save_json(training_stats_fn, train_stats)
+            if is_on_master() and not skip_save_training_statistics:
+                save_json(training_stats_fn, train_stats)
 
             # grab the results of the model with highest validation test performance
             validation_field = trainer.validation_field
@@ -721,12 +719,11 @@ class LudwigModel:
             return_type=return_type
         )
 
-        if is_on_master():
-            if not skip_save_predictions:
-                save_prediction_outputs(postproc_predictions,
-                                        output_directory)
+        if is_on_master() and not skip_save_predictions:
+            save_prediction_outputs(postproc_predictions,
+                                    output_directory)
 
-                logger.info('Saved to: {0}'.format(output_directory))
+            logger.info('Saved to: {0}'.format(output_directory))
 
         return converted_postproc_predictions, output_directory
 
