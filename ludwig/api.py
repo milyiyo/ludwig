@@ -1667,7 +1667,7 @@ def kfold_cross_validate(
         data_df = data_reader(dataset, backend.df_engine.df_lib)
         data_dir = os.path.dirname(dataset)
     else:
-        ValueError(
+        raise ValueError(
             "{} format is not supported for k_fold_cross_validate()"
                 .format(data_format)
         )
