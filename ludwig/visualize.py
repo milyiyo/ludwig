@@ -1288,8 +1288,7 @@ def learning_curves(
     metrics = [LOSS, ACCURACY, HITS_AT_K, EDIT_DISTANCE]
     for output_feature_name in output_feature_names:
         for metric in metrics:
-            if metric in train_stats_per_model_list[0][TRAINING][
-                output_feature_name]:
+            if metric in train_stats_per_model_list[0][TRAINING][output_feature_name]:
                 filename = None
                 if filename_template_path:
                     filename = filename_template_path.format(
