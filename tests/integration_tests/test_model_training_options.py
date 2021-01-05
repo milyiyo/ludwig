@@ -400,15 +400,13 @@ def test_cache_checksum(csv_filename, tmp_path):
     # conduct initial training
     output_directory = os.path.join(tmp_path, 'results')
     model = LudwigModel(config)
-    _, _, train_output_directory1 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     first_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
     # conduct second training, should not force recreating hdf5
     model = LudwigModel(config)
-    _, _, train_output_directory2 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
@@ -419,8 +417,7 @@ def test_cache_checksum(csv_filename, tmp_path):
     prior_training_timestamp = current_training_timestamp
     config['preprocessing']['text']['most_common_word'] = 2000
     model = LudwigModel(config)
-    _, _, train_output_directory3 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
@@ -431,8 +428,7 @@ def test_cache_checksum(csv_filename, tmp_path):
     prior_training_timestamp = current_training_timestamp
     os.utime(source_dataset)
     model = LudwigModel(config)
-    _, _, train_output_directory4 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
@@ -445,8 +441,7 @@ def test_cache_checksum(csv_filename, tmp_path):
     input_features[0]['preprocessing'] = {'lowercase': True}
     config['input_features'] = input_features
     model = LudwigModel(config)
-    _, _, train_output_directory5 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
@@ -460,8 +455,7 @@ def test_cache_checksum(csv_filename, tmp_path):
                                    source_dataset)
     config['input_features'] = input_features
     model = LudwigModel(config)
-    _, _, train_output_directory5 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
@@ -472,8 +466,7 @@ def test_cache_checksum(csv_filename, tmp_path):
     prior_training_timestamp = current_training_timestamp
     global_vars.LUDWIG_VERSION = 'new_version'
     model = LudwigModel(config)
-    _, _, train_output_directory5 = \
-        model.train(dataset=source_dataset, output_directory=output_directory)
+    model.train(dataset=source_dataset, output_directory=output_directory)
     current_training_timestamp = \
         os.path.getmtime(replace_file_extension(source_dataset, 'hdf5'))
 
