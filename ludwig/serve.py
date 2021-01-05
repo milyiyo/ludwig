@@ -40,7 +40,7 @@ try:
 except ImportError as e:
     logger.error(e)
     logger.error(
-        ' fastapi and other serving dependencies cannot be loaded'
+        ' fastapi and other serving dependencies cannot be loaded '
         'and may have not been installed. '
         'In order to install all serving dependencies run '
         'pip install ludwig[serve]'
