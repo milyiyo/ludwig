@@ -94,8 +94,6 @@ def test_model_save_reload_api(csv_filename, tmp_path):
         for key in preds_1:
             assert preds_1[key].dtype == preds_2[key].dtype, key
             assert list(preds_1[key]) == list(preds_2[key]), key
-            # assert preds_2[key].dtype == preds_3[key].dtype, key
-            # assert list(preds_2[key]) == list(preds_3[key]), key
 
         # Compare model weights
         # this has to be done after predicts because of TF2 lazy restoration

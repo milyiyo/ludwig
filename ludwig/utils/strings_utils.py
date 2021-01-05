@@ -86,7 +86,6 @@ def load_vocabulary(vocab_file):
                 line = line.split(' ')[0]
             vocabulary.append(line)
         return vocabulary
-        # return [line.strip() for line in f]
 
 
 def create_vocabulary(

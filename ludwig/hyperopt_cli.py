@@ -172,8 +172,6 @@ def hyperopt_cli(
         data_format=data_format,
         experiment_name=experiment_name,
         model_name=model_name,
-        # model_load_path=model_load_path,
-        # model_resume_path=model_resume_path,
         skip_save_training_description=skip_save_training_description,
         skip_save_training_statistics=skip_save_training_statistics,
         skip_save_model=skip_save_model,

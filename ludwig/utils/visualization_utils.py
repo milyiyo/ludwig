@@ -53,10 +53,6 @@ INT_QUANTILES = 10
 FLOAT_QUANTILES = 10
 
 
-# plt.rc('xtick', labelsize='x-large')
-# plt.rc('ytick', labelsize='x-large')
-# plt.rc('axes', labelsize='x-large')
-
 def learning_curves_plot(
         train_values,
         vali_values,
@@ -777,13 +773,7 @@ def threshold_vs_metric_plot(
     ax1.set_xticks([x for idx, x in enumerate(thresholds) if idx % 2 == 0])
     ax1.set_xticks(thresholds, minor=True)
 
-    # ax1.set_xlim(0, 1)
     ax1.set_xlabel('confidence threshold')
-
-    # ax1.set_ylim(0, 1)
-    # ax1.set_yticks(y_ticks_major)
-    # ax1.set_yticklabels(y_ticks_major_labels)
-    # ax1.set_yticks(y_ticks_minor, minor=True)
 
     for i in range(len(scores)):
         algorithm_name = algorithm_names[
@@ -875,11 +865,6 @@ def calibration_plot(
     plt.plot([0, 1], [0, 1], 'k:', label='Perfectly calibrated')
 
     for i in range(num_algorithms):
-        # ax1.plot(mean_predicted_values[i], fraction_positives[i],
-        #         label=algorithms[i] if algorithm_names is not None and i < len(algorithms) else '')
-
-        # sns.tsplot(mean_predicted_values[i], fraction_positives[i], ax=ax1, color=colors[i])
-
         assert len(mean_predicted_values[i]) == len(fraction_positives[i])
         order = min(3, len(mean_predicted_values[i]) - 1)
 
@@ -1030,10 +1015,6 @@ def double_axis_line_plot(
 
     if title is not None:
         ax1.set_title(title)
-
-    # ax1.grid(which='both')
-    # ax1.grid(which='minor', alpha=0.5)
-    # ax1.grid(which='major', alpha=0.75)
 
     ax1.set_xlabel('class (sorted by {})'.format(y1_name))
     ax1.set_xlim(0, len(y1_sorted) - 1)
