@@ -17,8 +17,6 @@
 
 from collections import UserDict
 
-import ludwig.utils
-
 
 DEFAULT_KEYS = ['None', 'none', 'null', None]
 
