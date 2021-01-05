@@ -9,12 +9,10 @@ from ludwig.api import LudwigModel
 from ludwig.data.dataset_synthesizer import build_synthetic_dataset
 from ludwig.data.preprocessing import preprocess_for_training
 from ludwig.features.feature_registries import update_config_with_metadata
-from ludwig.data.dataset_synthesizer import build_synthetic_dataset
 from tests.integration_tests.utils import sequence_feature
 from tests.integration_tests.utils import ENCODERS
 from tests.integration_tests.utils import generate_data
 from tests.integration_tests.utils import run_experiment
-from tests.integration_tests.utils import sequence_feature
 
 #
 # this test is focused on testing input sequence features with all encoders
