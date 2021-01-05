@@ -88,8 +88,7 @@ def collect_activations(
     :return: (List[str]) list of filepath to `*.npy` files containing
         the activations.
     """
-    logger.info('Dataset path: {}'.format(dataset)
-                )
+    logger.info('Dataset path: {}'.format(dataset))
     logger.info('Model path: {}'.format(model_path))
     logger.info('Output path: {}'.format(output_directory))
     logger.info('\n')
@@ -271,8 +270,6 @@ def cli_collect_activations(sys_argv):
         nargs='+',
         required=True
     )
-
-
 
     # -------------------------
     # Output results parameters
