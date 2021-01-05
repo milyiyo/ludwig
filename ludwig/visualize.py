@@ -1490,8 +1490,7 @@ def compare_classifiers_performance_from_prob(
     hits_at_ks = []
     mrrs = []
 
-    for i, prob in enumerate(probs):
-
+    for prob in probs:
         if labels_limit > 0 and prob.shape[1] > labels_limit + 1:
             prob_limit = prob[:, :labels_limit + 1]
             prob_limit[:, labels_limit] = prob[:, labels_limit:].sum(1)
@@ -1602,7 +1601,7 @@ def compare_classifiers_performance_from_pred(
     recalls = []
     f1s = []
 
-    for i, pred in enumerate(preds):
+    for pred in preds:
         accuracies.append(sklearn.metrics.accuracy_score(ground_truth, pred))
         precisions.append(
             sklearn.metrics.precision_score(ground_truth, pred,
@@ -1823,8 +1822,7 @@ def compare_classifiers_performance_changing_k(
 
     hits_at_ks = []
     model_names_list = convert_to_list(model_names)
-    for i, prob in enumerate(probs):
-
+    for prob in probs:
         if labels_limit > 0 and prob.shape[1] > labels_limit + 1:
             prob_limit = prob[:, :labels_limit + 1]
             prob_limit[:, labels_limit] = prob[:, labels_limit:].sum(1)
@@ -2322,8 +2320,7 @@ def confidence_thresholding(
     accuracies = []
     dataset_kept = []
 
-    for i, prob in enumerate(probs):
-
+    for prob in probs:
         if labels_limit > 0 and prob.shape[1] > labels_limit + 1:
             prob_limit = prob[:, :labels_limit + 1]
             prob_limit[:, labels_limit] = prob[:, labels_limit:].sum(1)
@@ -2424,8 +2421,7 @@ def confidence_thresholding_data_vs_acc(
     accuracies = []
     dataset_kept = []
 
-    for i, prob in enumerate(probs):
-
+    for prob in probs:
         if labels_limit > 0 and prob.shape[1] > labels_limit + 1:
             prob_limit = prob[:, :labels_limit + 1]
             prob_limit[:, labels_limit] = prob[:, labels_limit:].sum(1)
@@ -3187,8 +3183,7 @@ def binary_threshold_vs_metric(
 
         scores = []
 
-        for i, prob in enumerate(probs):
-
+        for prob in probs:
             scores_alg = []
 
             if len(prob.shape) == 2:
@@ -3299,7 +3294,7 @@ def roc_curves(
     model_names_list = convert_to_list(model_names)
     fpr_tprs = []
 
-    for i, prob in enumerate(probs):
+    for prob in probs:
         if len(prob.shape) > 1:
             prob = prob[:, positive_label]
         fpr, tpr, _ = sklearn.metrics.roc_curve(
