@@ -241,14 +241,14 @@ def save_hdf5(data_fp, data):
 
 
 def load_hdf5(data_fp):
-    hdf5_data = h5py.File(data_fp, 'r')
-    columns = [s.decode('utf-8') for s in hdf5_data[HDF5_COLUMNS_KEY][()].tolist()]
+    with h5py.File(data_fp, 'r') as hdf5_data:
+        columns = [s.decode('utf-8') for s in hdf5_data[HDF5_COLUMNS_KEY][()].tolist()]
 
-    numpy_dataset = {}
-    for column in columns:
-        numpy_dataset[column] = hdf5_data[column][()]
+        numpy_dataset = {}
+        for column in columns:
+            numpy_dataset[column] = hdf5_data[column][()]
 
-    return from_numpy_dataset(numpy_dataset)
+        return from_numpy_dataset(numpy_dataset)
 
 
 def load_object(object_fp):
