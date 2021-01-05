@@ -62,19 +62,12 @@ def clip_optimizer(optimizer, clipglobalnorm, clipnorm, clipvalue,
                 gradients, _ = tf.clip_by_global_norm(gradients,
                                                       self.clipglobalnorm)
             if self.clipnorm:
-                gradients = map(
-                    lambda x: tf.clip_by_norm(x, self.clipnorm),
-                    gradients
-                )
+                gradients = [tf.clip_by_norm(x, self.clipnorm) for x in gradients]
             if self.clipvalue:
-                gradients = map(
-                    lambda x: tf.clip_by_value(
-                        x,
-                        clip_value_min=self.clipvalue[0],
-                        clip_value_max=self.clipvalue[1]
-                    ),
-                    gradients
-                )
+                gradients = [
+                    tf.clip_by_value(x, clip_value_min=self.clipvalue[0], clip_value_max=self.clipvalue[1]) 
+                    for x in gradients
+                ]
             self.apply_gradients(zip(gradients, variables))
 
         def set_learning_rate(self, learning_rate):
