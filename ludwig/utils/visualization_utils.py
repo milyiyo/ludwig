@@ -656,7 +656,6 @@ def confidence_fitlering_3d_plot(
     z_ticks_major_labels = ['{:3.0f}%'.format(z * 100) for z in z_ticks_major]
 
     fig = plt.figure()
-    ax = Axes3D
     ax = fig.add_subplot(111, projection='3d')
 
     if title is not None:
