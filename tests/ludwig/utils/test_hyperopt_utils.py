@@ -92,7 +92,7 @@ def test_grid_strategy(key):
             if param_type == "int" or param_type == "float":
                 low = grid_sampler_params[param]["low"]
                 high = grid_sampler_params[param]["high"]
-                assert value >= low and value <= high
+                assert high >= value >= low
             else:
                 assert value in set(grid_sampler_params[param]["values"])
 
