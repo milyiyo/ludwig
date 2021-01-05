@@ -362,7 +362,7 @@ def cli(sys_argv):
         help='format of the input data',
         default='auto',
         choices=['auto', 'csv', 'excel', 'feather', 'fwf', 'hdf5',
-                 'html' 'tables', 'json', 'jsonl', 'parquet', 'pickle', 'sas',
+                 'html', 'tables', 'json', 'jsonl', 'parquet', 'pickle', 'sas',
                  'spss', 'stata', 'tsv']
     )
 
