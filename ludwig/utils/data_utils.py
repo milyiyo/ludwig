@@ -505,10 +505,9 @@ def add_sequence_feature_column(df, col_name, seq_length):
 def override_in_memory_flag(input_features, override_value):
     num_overrides = 0
     for feature in input_features:
-        if PREPROCESSING in feature:
-            if 'in_memory' in feature[PREPROCESSING]:
-                feature[PREPROCESSING]['in_memory'] = override_value
-                num_overrides += 1
+        if PREPROCESSING in feature and 'in_memory' in feature[PREPROCESSING]:
+            feature[PREPROCESSING]['in_memory'] = override_value
+            num_overrides += 1
     return num_overrides
 
 
