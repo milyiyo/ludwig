@@ -78,7 +78,7 @@ def test_collect_weights(csv_filename):
 
         model, output_dir = _train(*_prepare_data(csv_filename))
         model_path = os.path.join(output_dir, 'model')
-        weights = [w for name, w in model.model.collect_weights()]
+        weights = [w for _, w in model.model.collect_weights()]
 
         #  1 for the encoder (embeddings),
         #  2 for the decoder classifier (w and b)
@@ -87,7 +87,7 @@ def test_collect_weights(csv_filename):
         # Load model from disk to ensure correct weight names
         tf.keras.backend.reset_uids()
         model_loaded = LudwigModel.load(model_path)
-        tensor_names = [name for name, w in model_loaded.collect_weights()]
+        tensor_names = [name for name, _ in model_loaded.collect_weights()]
         assert len(tensor_names) == 3
 
         tf.keras.backend.reset_uids()
@@ -113,7 +113,7 @@ def test_collect_activations(csv_filename):
         # with "_1".
         tf.keras.backend.reset_uids()
 
-        model, output_dir = _train(*_prepare_data(csv_filename))
+        _, output_dir = _train(*_prepare_data(csv_filename))
         model_path = os.path.join(output_dir, 'model')
 
         layers = _get_layers(model_path)

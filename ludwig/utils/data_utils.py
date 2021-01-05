@@ -556,7 +556,7 @@ def get_path_size(
     pattern_accept = re.compile(regex_accept) if regex_accept else None
     pattern_reject = re.compile(regex_reject) if regex_reject else None
 
-    for dirpath, dirnames, filenames in os.walk(start_path):
+    for dirpath, _, filenames in os.walk(start_path):
         for filename in filenames:
             filepath = os.path.join(dirpath, filename)
             if not os.path.islink(filepath):

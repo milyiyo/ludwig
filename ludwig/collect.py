@@ -190,7 +190,7 @@ def print_model_summary(
     """
     model = LudwigModel.load(model_path)
     collected_tensors = model.collect_weights()
-    names = [name for name, w in collected_tensors]
+    names = [name for name, _ in collected_tensors]
 
     keras_model = model.model.get_connected_model(training=False)
     keras_model.summary()

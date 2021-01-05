@@ -143,7 +143,7 @@ def convert_batch_input(form):
     """Returns a new input and a list of files to be cleaned up"""
     files = []
     file_index = {}
-    for k, v in form.multi_items():
+    for _, v in form.multi_items():
         if type(v) == UploadFile:
             file_index[v.filename] = _write_file(v, files)
 

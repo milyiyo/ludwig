@@ -290,7 +290,7 @@ def test_optimizers(optimizer_type, generated_data_for_optimizer, tmp_path):
     results_dir.mkdir()
 
     # run experiment
-    train_stats, preprocessed_data, output_directory = model.train(
+    train_stats, _, _ = model.train(
         training_set=generated_data_for_optimizer.train_df,
         output_directory=str(results_dir),
         config=config,

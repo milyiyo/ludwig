@@ -68,7 +68,7 @@ def learning_curves_plot(
     num_algorithms = len(train_values)
     max_len = max([len(tv) for tv in train_values])
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     sns.set_style('whitegrid')
 
@@ -126,7 +126,7 @@ def compare_classifiers_plot(
 
     sns.set_style('whitegrid')
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     ax.grid(which='both')
     ax.grid(which='minor', alpha=0.5)
@@ -194,7 +194,7 @@ def compare_classifiers_line_plot(
     sns.set_style('whitegrid')
     colors = plt.get_cmap('tab10').colors
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     ax.grid(which='both')
     ax.grid(which='minor', alpha=0.5)
@@ -235,7 +235,7 @@ def compare_classifiers_multiclass_multimetric_plot(
 
     sns.set_style('whitegrid')
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     if title is not None:
         ax.set_title(title)
@@ -360,7 +360,7 @@ def pie(ax, values, **kwargs):
         else:
             return ''
 
-    wedges, _, labels = ax.pie(values, autopct=formatter, **kwargs)
+    wedges, _, _ = ax.pie(values, autopct=formatter, **kwargs)
     return wedges
 
 
@@ -374,7 +374,7 @@ def donut(
         tight_layout=None,
         filename=None
 ):
-    fig, ax = plt.subplots(figsize=(7,5))
+    _, ax = plt.subplots(figsize=(7,5))
 
     if title is not None:
         ax.set_title(title)
@@ -429,7 +429,7 @@ def donut(
     for i in list(set(outside_groups)):
         wedges.append(inside[i])
         labels.append(inside_labels[i])
-        for j in range(group_count[i]):
+        for _ in range(group_count[i]):
             wedges.append(outside[so_far])
             labels.append(outside_labels[so_far])
             so_far += 1
@@ -467,7 +467,7 @@ def confidence_fitlering_plot(
     y_ticks_major = np.linspace(0.0, 1.0, num=11)
     y_ticks_major_labels = ['{:3.0f}%'.format(y * 100) for y in y_ticks_major]
 
-    fig, ax1 = plt.subplots()
+    _, ax1 = plt.subplots()
 
     if title is not None:
         ax1.set_title(title)
@@ -544,7 +544,7 @@ def confidence_fitlering_data_vs_acc_plot(
     y_ticks_minor = np.linspace(0.0, 1.0, num=21)
     y_ticks_major = np.linspace(0.0, 1.0, num=11)
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     if title is not None:
         ax.set_title(title)
@@ -605,7 +605,7 @@ def confidence_fitlering_data_vs_acc_multiline_plot(
     y_ticks_minor = np.linspace(0.0, 1.0, num=21)
     y_ticks_major = np.linspace(0.0, 1.0, num=11)
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     if title is not None:
         ax.set_title(title)
@@ -766,11 +766,7 @@ def threshold_vs_metric_plot(
 
     colors = plt.get_cmap('tab10').colors
 
-    # y_ticks_minor = np.linspace(0.0, 1.0, num=21)
-    # y_ticks_major = np.linspace(0.0, 1.0, num=11)
-    # y_ticks_major_labels = ['{:3.0f}%'.format(y * 100) for y in y_ticks_major]
-
-    fig, ax1 = plt.subplots()
+    _, ax1 = plt.subplots()
 
     if title is not None:
         ax1.set_title(title)
@@ -820,7 +816,7 @@ def roc_curves(
     y_ticks_minor = np.linspace(0.0, 1.0, num=21)
     y_ticks_major = np.linspace(0.0, 1.0, num=11)
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     if title is not None:
         ax.set_title(title)
@@ -1165,7 +1161,7 @@ def bar_plot(
 
     sns.set_style('whitegrid')
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
 
     ax.grid(which='both')
     ax.grid(which='minor', alpha=0.5)

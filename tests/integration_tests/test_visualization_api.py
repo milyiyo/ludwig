@@ -551,7 +551,7 @@ def test_confidence_thresholding_2thresholds_2d_vis_api(csv_filename):
             validation_set=val_df,
             output_directory=os.path.join(tmpvizdir, 'results')
         )
-        test_stats, predictions, _ = model.evaluate(
+        _, predictions, _ = model.evaluate(
             dataset=test_df,
             collect_predictions=True,
             output_dir=output_dir
@@ -623,7 +623,7 @@ def test_confidence_thresholding_2thresholds_3d_vis_api(csv_filename):
             validation_set=val_df,
             output_directory=os.path.join(tmpvizdir, 'results')
         )
-        test_stats, predictions, _ = model.evaluate(
+        _, predictions, _ = model.evaluate(
             dataset=test_df,
             collect_predictions=True,
             output_directory=output_dir

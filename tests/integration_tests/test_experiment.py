@@ -416,7 +416,7 @@ def test_experiment_image_dataset(
     if test_format == 'hdf5':
         # hdf5 format
         # create hdf5 data set
-        _, test_set, _, training_set_metadata_for_test = preprocess_for_training(
+        _, test_set, _, _ = preprocess_for_training(
             model.config,
             dataset=test_data
         )

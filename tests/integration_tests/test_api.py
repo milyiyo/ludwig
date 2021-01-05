@@ -180,7 +180,7 @@ def test_api_train_online(csv_filename):
     }
     model = LudwigModel(config)
 
-    for i in range(2):
+    for _ in range(2):
         model.train_online(dataset=data_csv)
     model.predict(dataset=data_csv)
 
