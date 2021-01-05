@@ -675,7 +675,7 @@ def confidence_fitlering_3d_plot(
     ax.set_zticklabels(z_ticks_major_labels)
     ax.set_zticks(z_ticks_minor, minor=True)
 
-    # ORRIBLE HACK, IT'S THE ONLY WAY TO REMOVE PADDING
+    # HORRIBLE HACK, IT'S THE ONLY WAY TO REMOVE PADDING
     from mpl_toolkits.mplot3d.axis3d import Axis
     if not hasattr(Axis, '_get_coord_info_old'):
         def _get_coord_info_new(self, renderer):
